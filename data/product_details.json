@@ -1,0 +1,25 @@
+[
+  {
+    "ProductId": 1,
+    "StockId": 1,
+    "CategoryId": 1
+  },
+
+  {
+    "ProductId": 2,
+    "StockId": 2,
+    "CategoryId": 2
+  },
+
+  {
+    "ProductId": 3,
+    "StockId": 2,
+    "CategoryId": 3
+  },
+
+  {
+    "ProductId": 4,
+    "StockId": 3,
+    "CategoryId": 4
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Transformers",
+    "description": "mainan untuk anak anak",
+    "price": 10000,
+    "discount": 0.2,
+    "UserId": 3
+  },
+  {
+    "name": "Sirup Marjan",
+    "description": "minuman rasa",
+    "price": 20000,
+    "discount": 0.2,
+    "UserId": 5
+  },
+  {
+    "name": "Bimoli",
+    "description": "minyak goreng",
+    "price": 30000,
+    "discount": 0.5,
+    "UserId": 7
+  },
+  {
+    "name": "Kapur Barus",
+    "description": "Penghilang Bau",
+    "price": 30000,
+    "discount": 0.1,
+    "UserId": 6
+  }
+]

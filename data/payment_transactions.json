@@ -1,0 +1,47 @@
+[
+  {
+    "ProductId": 1,
+    "UserId": 5,
+    "quantity": 20,
+    "payment_code": "12312312354123465",
+    "total": 2000,
+    "shipping_address": "Jakarta",
+    "payment_method": "OVO",
+    "payment_status": "Done",
+    "delivery_status": "Done"
+  },
+
+  {
+    "ProductId": 2,
+    "UserId": 3,
+    "quantity": 40,
+    "payment_code": "1235712395412341234",
+    "total": 10000,
+    "shipping_address": "Bandung",
+    "payment_method": "BNI",
+    "payment_status": "Pending",
+    "delivery_status": "Pending"
+  },
+  {
+    "ProductId": 2,
+    "UserId": 7,
+    "quantity": 10,
+    "payment_code": "1235712395412341234",
+    "total": 10000,
+    "shipping_address": "Surabaya",
+    "payment_method": "BCA",
+    "payment_status": "Done",
+    "delivery_status": "Done"
+  },
+  {
+    "ProductId": 4,
+    "UserId": 6,
+    "quantity": 20,
+    "payment_code": "1235712395412341234",
+    "total": 10000,
+    "shipping_address": "Madura",
+    "payment_method": "GOPAY",
+    "payment_status": "Pending",
+    "delivery_status": "Pending"
+  }
+]
