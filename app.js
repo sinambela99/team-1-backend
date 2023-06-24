@@ -13,6 +13,8 @@ app.use("/api", require("./routes/user.routes"));
 app.use("/api", require("./routes/product.routes"));
 app.use("/api", require("./routes/stock.routes"));
 app.use("/api", require("./routes/payment_transaction.routes"));
+app.use("/api", require("./routes/cart.routes"));
+app.use("/api", require("./routes/category.routes"));
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
