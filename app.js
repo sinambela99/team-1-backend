@@ -9,7 +9,7 @@ const errorHandler = require("./middlewares/errHandler");
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use(require("./routes"));
+app.use("/api", require("./routes/user.routes"));
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
