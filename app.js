@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api", require("./routes/user.routes"));
 app.use("/api", require("./routes/product.routes"));
+app.use("/api", require("./routes/stock.routes"));
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
