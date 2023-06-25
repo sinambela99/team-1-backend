@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
       Product_detail.belongsTo(models.Category, {
         foreignKey: "CategoryId",
       });
-      Product_detail.hasMany(models.Cart);
     }
   }
   Product_detail.init(
