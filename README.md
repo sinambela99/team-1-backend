@@ -6,6 +6,7 @@ Backend team huru hara
 - npx sequelize db:create
 - npx sequelize db:migrate
 - npx sequelize db:seed:all
-- npm run start to run app 
+- npm run start to run app
+- npm i express-formidable
 
 Dont forget setting port in file env like 8081 or 8080
