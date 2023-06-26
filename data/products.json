@@ -2,6 +2,7 @@
   {
     "name": "Transformers",
     "description": "mainan untuk anak anak",
+    "photo": "https://i.pinimg.com/236x/ce/80/4e/ce804eaf533cbf5725676a3f168cebec.jpg",
     "price": 10000,
     "discount": 0.2,
     "UserId": 3
@@ -9,6 +10,7 @@
   {
     "name": "Sirup Marjan",
     "description": "minuman rasa",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0w2kwLc_5mYnlPsSrLrKGgoRFg9P28Uf2QxCz3vISPsawhlz_hHmjNcQjEJEYYnjF9vc&usqp=CAU",
     "price": 20000,
     "discount": 0.2,
     "UserId": 5
@@ -16,6 +18,7 @@
   {
     "name": "Bimoli",
     "description": "minyak goreng",
+    "photo": "https://www.wartamaluku.com/wp-content/uploads/2018/02/received_1994858934109843.jpeg",
     "price": 30000,
     "discount": 0.5,
     "UserId": 7
@@ -23,6 +26,7 @@
   {
     "name": "Kapur Barus",
     "description": "Penghilang Bau",
+    "photo": "https://assets-a1.kompasiana.com/statics/crawl/552d3b880423bd91738b4567.jpeg",
     "price": 30000,
     "discount": 0.1,
     "UserId": 6
