@@ -8,24 +8,20 @@ class Controller {
 
       res.status(200).json({ data: result });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
   // Create Category
   static async newCategory(req, res, next) {
     try {
-      const { name, description } = req.body;
+      const { name, description } = req.fields;
 
       const category = await Category.create({ name, description });
 
-      res
-        .status(200)
-        .json({ message: `New Category with id ${category.id} created.` });
+      res.status(200).json({ message: `New Category with id ${category.id} created.` });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -34,37 +30,30 @@ class Controller {
     try {
       const result = await Category.findByPk(req.params.id);
 
-      if (!result)
-        return res.status(400).json({ message: "Category id not found" });
+      if (!result) return res.status(400).json({ message: "Category id not found" });
 
       res.status(200).json({ data: result });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
   // Update Category
   static async updateCategory(req, res, next) {
     try {
-      const category = await Categorie.findByPk(req.params.id);
+      const category = await Category.findByPk(req.params.id);
 
       if (!category) {
-        res.status(404).json({
-          message: `Category id not found`,
-        });
+        throw { name: "NotFound" };
       }
 
-      const { name, description } = req.body;
+      const { name, description } = req.fields;
 
       Category.update({ name, description }, { where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({ message: `Category with id ${category.id} updated` });
+      res.status(200).json({ message: `Category with id ${category.id} updated` });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -73,17 +62,15 @@ class Controller {
     try {
       const category = await Category.findByPk(req.params.id);
 
-      if (!category)
-        return res.status(404).json({ message: "Category id not found" });
+      if (!category) {
+        throw { name: "NotFound" };
+      }
 
       Category.destroy({ where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({ message: `Category with id ${category.id} deleted` });
+      res.status(200).json({ message: `Category with id ${category.id} deleted` });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 }
