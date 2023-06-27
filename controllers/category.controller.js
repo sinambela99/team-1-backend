@@ -40,10 +40,10 @@ class Controller {
   
     static async updateCategory(req, res, next) {
       try {
-        const { quantity, UserId, ProductId } = req.body;
+        const { name, description } = req.body;
   
         const category = await Category.update(
-          { quantity, UserId, ProductId },
+          { name, description },
           { where: { id: req.params.id } }
         );
   
