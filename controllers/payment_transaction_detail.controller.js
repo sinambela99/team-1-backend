@@ -8,8 +8,7 @@ class Controller {
 
       res.status(200).json({ data: result });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -17,15 +16,13 @@ class Controller {
     try {
       const result = await Payment_transaction_detail.findByPk(req.params.id);
 
-      if (!result)
-        return res
-          .status(400)
-          .json({ message: "Payment Transaction Detail not found" });
+      if (!result) {
+        throw { name: "NotFound" };
+      }
 
       res.status(200).json({ data: result });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -33,9 +30,7 @@ class Controller {
     try {
       const { shipment_number, PaymentTransactionId } = req.fields;
 
-      const uploadedFile = await cloudinaryConfig.uploader.upload(
-        req.files.receipt.path
-      );
+      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.receipt.path);
 
       const data = await Payment_transaction_detail.create({
         shipment_number,
@@ -47,8 +42,7 @@ class Controller {
         message: `New Payment Transaction Detail with id ${data.id} created.`,
       });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -56,9 +50,7 @@ class Controller {
     try {
       const { shipment_number, PaymentTransactionId } = req.fields;
 
-      const uploadedFile = await cloudinaryConfig.uploader.upload(
-        req.files.receipt.path
-      );
+      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.receipt.path);
 
       const data = await Payment_transaction_detail.update(
         {
@@ -73,8 +65,7 @@ class Controller {
         message: `Payment Transaction Detail with id ${req.params.id} updated`,
       });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 
@@ -82,19 +73,16 @@ class Controller {
     try {
       const data = await Payment_transaction_detail.findByPk(req.params.id);
 
-      if (!data)
-        return res
-          .status(404)
-          .json({ message: "Payment Transaction Detail not found" });
-
+      if (!data) {
+        throw { name: "NotFound" };
+      }
       Payment_transaction_detail.destroy({ where: { id: req.params.id } });
 
       res.status(200).json({
         message: `Payment Transaction Detail with id ${data.id} deleted`,
       });
     } catch (err) {
-      console.log(err);
-      return res.status(500).json({ message: "Internal server error" });
+      next(err);
     }
   }
 }
