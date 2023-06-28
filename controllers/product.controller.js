@@ -1,10 +1,34 @@
-const { Product } = require("../models");
+const { Product, User } = require("../models");
 const cloudinaryConfig = require("../config/cloudinary");
+const { Op } = require("sequelize");
 
 class Controller {
   static async getAllProduct(req, res, next) {
     try {
-      const result = await Product.findAll();
+      const { page, size, search } = req.query;
+
+      const options = {
+        order: [["id", "ASC"]],
+        include: [{ model: User, attributes: ["name"] }],
+      };
+
+      if (search) {
+        options.where = {
+          name: {
+            [Op.iLike]: `%${search}%`,
+          },
+        };
+      }
+
+      if (options <= 0) {
+        throw { name: "NotFound" };
+      }
+
+      const result = await Product.findAll(options);
+
+      if (result <= 0) {
+        throw { name: "NotFound" };
+      }
 
       res.status(200).json({ data: result });
     } catch (err) {
@@ -15,16 +39,16 @@ class Controller {
   static async newProduct(req, res, next) {
     try {
       const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.photo.path);
-
-      const { name, description, price, discount, UserId } = req.fields;
+      const { id } = req.user;
+      const { name, description, price, discount } = req.fields;
 
       const product = await Product.create({
         name,
         description,
         photo: uploadedFile?.secure_url,
-        price,
+        price: +price,
         discount,
-        UserId,
+        UserId: +id,
       });
 
       res.status(200).json({ message: `New Product with id ${product.id} created.` });
@@ -37,7 +61,9 @@ class Controller {
     try {
       const result = await Product.findByPk(req.params.id);
 
-      if (!result) return res.status(400).json({ message: "Product not found" });
+      if (!result) {
+        throw { name: "NotFound" };
+      }
 
       res.status(200).json({ data: result });
     } catch (err) {
@@ -49,7 +75,7 @@ class Controller {
     try {
       const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.photo.path);
 
-      const { name, description, price, discount, UserId } = req.fields;
+      const { name, description, price, discount } = req.fields;
 
       const product = await Product.update(
         {
@@ -58,7 +84,6 @@ class Controller {
           photo: uploadedFile?.secure_url,
           price,
           discount,
-          UserId,
         },
         { where: { id: req.params.id } }
       );
