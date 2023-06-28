@@ -12,27 +12,31 @@ class Controller {
     }
   }
 
-  // Create Category
-  static async newCategory(req, res, next) {
-    try {
-      const { name, description } = req.fields;
-
-      const category = await Category.create({ name, description });
-
-      res.status(200).json({ message: `New Category with id ${category.id} created.` });
-    } catch (err) {
-      next(err);
-    }
-  }
-
   // Get Category By Id
   static async getCategoryById(req, res, next) {
     try {
       const result = await Category.findByPk(req.params.id);
 
-      if (!result) return res.status(400).json({ message: "Category id not found" });
+      if (!result) {
+        throw { name: "NotFound" };
+      }
 
       res.status(200).json({ data: result });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  // Create Category
+  static async createNewCategory(req, res, next) {
+    try {
+      const { name, description } = req.fields;
+
+      const category = await Category.create({ name, description });
+
+      res
+        .status(200)
+        .json({ message: `New Category with id ${category.id} created.` });
     } catch (err) {
       next(err);
     }
@@ -51,7 +55,9 @@ class Controller {
 
       Category.update({ name, description }, { where: { id: req.params.id } });
 
-      res.status(200).json({ message: `Category with id ${category.id} updated` });
+      res
+        .status(200)
+        .json({ message: `Category with id ${category.id} updated` });
     } catch (err) {
       next(err);
     }
@@ -68,7 +74,9 @@ class Controller {
 
       Category.destroy({ where: { id: req.params.id } });
 
-      res.status(200).json({ message: `Category with id ${category.id} deleted` });
+      res
+        .status(200)
+        .json({ message: `Category with id ${category.id} deleted` });
     } catch (err) {
       next(err);
     }
