@@ -17,6 +17,7 @@ module.exports = {
     const dataUser = require("../data/users.json");
     dataUser.forEach((el) => {
       el.password = hashPassword(el.password, 8);
+      el.role = el.role.toString().toLowerCase();
       el.createdAt = el.updatedAt = new Date();
     });
     await queryInterface.bulkInsert("Users", dataUser, {});

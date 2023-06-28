@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeCreate(user, options) {
           user.password = hashPassword(user.password, 8);
+          user.role = user.role.toString().toLowerCase();
         },
       },
       sequelize,
