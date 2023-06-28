@@ -63,7 +63,7 @@ class Controller {
 
   static async updateUser(req, res, next) {
     try {
-      const { name, address, email, password, role } = req.body;
+      const { name, address, email, password, role } = req.fields;
 
       const user = await User.update(
         {
