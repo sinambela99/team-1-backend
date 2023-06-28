@@ -76,7 +76,7 @@ class Controller {
         { where: { id: req.params.id } }
       );
 
-      res.status(200).json({ message: `User id ${user.id} updated` });
+      res.status(200).json({ message: `User id ${req.params.id} updated` });
     } catch (err) {
       next(err);
     }
@@ -86,6 +86,9 @@ class Controller {
     try {
       const user = await User.findByPk(req.params.id);
 
+      if (user == null) {
+        throw { name: "NotFound" };
+      }
       if (!user) {
         throw { name: "NotFound" };
       }
