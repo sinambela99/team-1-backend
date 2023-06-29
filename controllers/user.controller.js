@@ -3,6 +3,7 @@ const { comparePassword } = require("../helpers/bcrypt");
 const { generateToken } = require("../helpers/jwt");
 
 class Controller {
+  // Register User
   static async register(req, res, next) {
     try {
       const { name, address, email, password, role } = req.fields;
@@ -21,6 +22,7 @@ class Controller {
     }
   }
 
+  // Login User
   static async login(req, res, next) {
     try {
       const { email, password } = req.fields;
@@ -34,12 +36,18 @@ class Controller {
       }
       const payload = { id: user.id };
       const token = generateToken(payload);
-      res.status(200).json({ statusCode: 200, access_token: token, email: user.email, role: user.role });
+      res.status(200).json({
+        statusCode: 200,
+        access_token: token,
+        email: user.email,
+        role: user.role,
+      });
     } catch (err) {
       next(err);
     }
   }
 
+  // Get All User (Admin)
   static async getAllUsers(req, res, next) {
     try {
       const result = await User.findAll();
@@ -49,6 +57,7 @@ class Controller {
     }
   }
 
+  // Get User By Id (Admin)
   static async getUserById(req, res, next) {
     try {
       const result = await User.findByPk(req.params.id);
@@ -61,11 +70,18 @@ class Controller {
     }
   }
 
+  // Update User (Admin)
   static async updateUser(req, res, next) {
     try {
+      const user = await User.findByPk(req.params.id);
+
+      if (!user) {
+        throw { name: "NotFound" };
+      }
+
       const { name, address, email, password, role } = req.fields;
 
-      const user = await User.update(
+      User.update(
         {
           name,
           address,
@@ -82,6 +98,7 @@ class Controller {
     }
   }
 
+  // Delete User (Admin)
   static async deleteUser(req, res, next) {
     try {
       const user = await User.findByPk(req.params.id);
