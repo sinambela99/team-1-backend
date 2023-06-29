@@ -2,9 +2,12 @@ const { Payment_transaction_detail } = require("../models");
 const cloudinaryConfig = require("../config/cloudinary");
 
 class Controller {
+  // Get All Payment Transaction Detail
   static async getAllPayTransDet(req, res, next) {
     try {
-      const result = await Payment_transaction_detail.findAll();
+      const result = await Payment_transaction_detail.findAll({
+        order: [["id", "ASC"]],
+      });
 
       res.status(200).json({ data: result });
     } catch (err) {
@@ -12,6 +15,7 @@ class Controller {
     }
   }
 
+  // Get Payment Transaction Detail By Id
   static async getPayTransDetById(req, res, next) {
     try {
       const result = await Payment_transaction_detail.findByPk(req.params.id);
@@ -26,11 +30,14 @@ class Controller {
     }
   }
 
+  // Create Payment Transaction Detail
   static async createNewPayTransDet(req, res, next) {
     try {
       const { shipment_number, PaymentTransactionId } = req.fields;
 
-      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.receipt.path);
+      const uploadedFile = await cloudinaryConfig.uploader.upload(
+        req.files.receipt.path
+      );
 
       const data = await Payment_transaction_detail.create({
         shipment_number,
@@ -46,13 +53,22 @@ class Controller {
     }
   }
 
+  // Update Payment Transaction Detail
   static async updatePayTransDet(req, res, next) {
     try {
+      const data = await Payment_transaction_detail.findByPk(req.params.id);
+
+      if (!data) {
+        throw { name: "NotFound" };
+      }
+
       const { shipment_number, PaymentTransactionId } = req.fields;
 
-      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.receipt.path);
+      const uploadedFile = await cloudinaryConfig.uploader.upload(
+        req.files.receipt.path
+      );
 
-      const data = await Payment_transaction_detail.update(
+      Payment_transaction_detail.update(
         {
           shipment_number,
           receipt: uploadedFile?.secure_url,
@@ -69,6 +85,7 @@ class Controller {
     }
   }
 
+  // Delete Payment Transaction Detail
   static async deletePayTransDet(req, res, next) {
     try {
       const data = await Payment_transaction_detail.findByPk(req.params.id);
