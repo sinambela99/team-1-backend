@@ -3,7 +3,7 @@
     "name": "Heru",
     "email": "heru@gmail.com",
     "password": "12345",
-    "role": "Admin",
+    "role": "Seller",
     "address": "Jl.Tungau No.15 Jakarta Utara"
   },
 
@@ -27,7 +27,7 @@
     "name": "Axcell",
     "email": "Axcell@gmail.com",
     "password": "09876",
-    "role": "Admin",
+    "role": "Seller",
     "address": "Jl.Tungau No.15 Jakarta Utara"
   },
 

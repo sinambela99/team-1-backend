@@ -4,7 +4,9 @@ const Controller = require("../controllers/user.controller");
 const auth = require("../middlewares/authentication");
 const authUser = require("../middlewares/authUser");
 
-router.get("/", Controller.getAllUsers);
+router.get("/", Controller.getAllUser);
+router.get("/product", Controller.getAllUsersAndProduct);
+
 router.use(auth);
 router.get("/:id", Controller.getUserById);
 router.put("/:id", authUser, Controller.updateUser);
