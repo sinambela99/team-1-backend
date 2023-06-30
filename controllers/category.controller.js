@@ -1,10 +1,13 @@
-const { Category } = require("../models");
+const { Category, Product_detail, Stock } = require("../models");
 
 class Controller {
   // Get All Category
   static async getAllCategory(req, res, next) {
     try {
-      const result = await Category.findAll({ order: [["id", "ASC"]] });
+      const result = await Category.findAll({
+        order: [["id", "ASC"]],
+        include: [{ model: Product_detail }],
+      });
 
       res.status(200).json({ data: result });
     } catch (err) {
@@ -34,9 +37,7 @@ class Controller {
 
       const category = await Category.create({ name, description });
 
-      res
-        .status(200)
-        .json({ message: `New Category with id ${category.id} created.` });
+      res.status(200).json({ message: `New Category with id ${category.id} created.` });
     } catch (err) {
       next(err);
     }
@@ -55,9 +56,7 @@ class Controller {
 
       Category.update({ name, description }, { where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({ message: `Category with id ${category.id} updated` });
+      res.status(200).json({ message: `Category with id ${category.id} updated` });
     } catch (err) {
       next(err);
     }
@@ -74,9 +73,7 @@ class Controller {
 
       Category.destroy({ where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({ message: `Category with id ${category.id} deleted` });
+      res.status(200).json({ message: `Category with id ${category.id} deleted` });
     } catch (err) {
       next(err);
     }
