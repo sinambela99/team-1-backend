@@ -1,10 +1,13 @@
-const { Product_detail } = require("../models");
+const { Product_detail, Product, Stock, Category } = require("../models");
 
 class Controller {
   // Get All Product Details
   static async getAllProduct_detail(req, res, next) {
     try {
-      const result = await Product_detail.findAll({ order: [["id", "ASC"]] });
+      const result = await Product_detail.findAll({
+        order: [["id", "ASC"]],
+        include: [{ model: Product, Stock }, { model: Stock }, { model: Category }],
+      });
 
       res.status(200).json({ data: result });
     } catch (err) {
@@ -15,7 +18,7 @@ class Controller {
   // Get Product Details By Id
   static async getProduct_detailById(req, res, next) {
     try {
-      const result = await Product_detail.findByPk(req.params.id);
+      const result = await Product_detail.findByPk(req.params.id, { include: [{ model: Product }] });
 
       if (!result) {
         throw { name: "NotFound" };
@@ -55,18 +58,13 @@ class Controller {
         throw { name: "NotFound" };
       }
 
-      const { ProductId, StockId, CategoryId } = req.body;
+      const { ProductId, StockId, CategoryId } = req.fiels;
 
-      Product_detail.update(
-        { ProductId, StockId, CategoryId },
-        { where: { id: req.params.id } }
-      );
+      Product_detail.update({ ProductId, StockId, CategoryId }, { where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({
-          message: `Product_detail with id ${product_detail.id} updated`,
-        });
+      res.status(200).json({
+        message: `Product_detail with id ${product_detail.id} updated`,
+      });
     } catch (err) {
       next(err);
     }
