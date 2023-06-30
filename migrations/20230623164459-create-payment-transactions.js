@@ -26,9 +26,11 @@ module.exports = {
       },
       payment_status: {
         type: Sequelize.STRING,
+        defaultValue: "None",
       },
       delivery_status: {
         type: Sequelize.STRING,
+        defaultValue: "None",
       },
       ProductId: {
         type: Sequelize.INTEGER,

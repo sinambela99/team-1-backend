@@ -25,8 +25,14 @@ module.exports = (sequelize, DataTypes) => {
       total: DataTypes.INTEGER,
       shipping_address: DataTypes.STRING,
       payment_method: DataTypes.STRING,
-      payment_status: DataTypes.STRING,
-      delivery_status: DataTypes.STRING,
+      payment_status: {
+        type: DataTypes.STRING,
+        defaultValue: "None",
+      },
+      delivery_status: {
+        type: DataTypes.STRING,
+        defaultValue: "None",
+      },
       ProductId: DataTypes.INTEGER,
       UserId: DataTypes.INTEGER,
     },

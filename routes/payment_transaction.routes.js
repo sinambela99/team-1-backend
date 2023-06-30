@@ -1,11 +1,14 @@
-const express = require('express')
-const router = express.Router()
-const Controller = require('../controllers/payment_transaction.controller')
+const express = require("express");
+const router = express.Router();
+const Controller = require("../controllers/payment_transaction.controller");
+const auth = require("../middlewares/authentication");
 
-router.get('/payment',Controller.getAllPayTrans)
-router.get('/payment/:id',Controller.getPayTransById)
-router.post('/payment', Controller.createNewPayTrans)
-router.put('/payment/:id', Controller.updatePayTrans)
-router.delete('/payment/:id', Controller.deletePayTrans)
+router.use(auth);
 
-module.exports = router
+router.get("/", Controller.getAllPayTrans);
+router.get("/:id", Controller.getPayTransById);
+router.post("/", Controller.createNewPayTrans);
+router.put("/:id", Controller.updatePayTrans);
+router.delete("/:id", Controller.deletePayTrans);
+
+module.exports = router;
