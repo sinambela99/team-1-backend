@@ -10,16 +10,16 @@ const stock = require("./stock.routes");
 const paymentTransaction = require("./payment_transaction.routes");
 const paymentTransactionDetail = require("./payment_transaction_detail.routes");
 
-router.post("/register", userController.register);
-router.post("/login", userController.login);
+router.post("/api/register", userController.register);
+router.post("/api/login", userController.login);
 
-router.use("/user", user);
-router.use("/product", product);
-router.use("/category", category);
-router.use("/product-detail", productDetail);
-router.use("/cart", cart);
-router.use("stock", stock);
-router.use("/payment-transaction", paymentTransaction);
-router.use("/payment-transaction-detail", paymentTransactionDetail);
+router.use("/api/user", user);
+router.use("/api/product", product);
+router.use("/api/category", category);
+router.use("/api/product-detail", productDetail);
+router.use("/api/cart", cart);
+router.use("/api/stock", stock);
+router.use("/api/payment-transaction", paymentTransaction);
+router.use("/api/payment-transaction-detail", paymentTransactionDetail);
 
 module.exports = router;
