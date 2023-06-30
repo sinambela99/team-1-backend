@@ -5,6 +5,7 @@ const auth = require("../middlewares/authentication");
 const authProduct = require("../middlewares/authProduct");
 
 router.get("/", Controller.getAllProduct);
+
 router.use(auth);
 router.post("/", Controller.newProduct);
 router.get("/:id", Controller.getProductById);
