@@ -2,24 +2,106 @@
   {
     "ProductId": 1,
     "StockId": 1,
-    "CategoryId": 1
+    "CategoryId": 5
   },
-
   {
     "ProductId": 2,
     "StockId": 2,
-    "CategoryId": 2
+    "CategoryId": 5
   },
-
   {
     "ProductId": 3,
     "StockId": 2,
-    "CategoryId": 3
+    "CategoryId": 5
   },
-
   {
     "ProductId": 4,
     "StockId": 3,
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 5,
+    "StockId": 5,
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 6,
+    "StockId": 5,
     "CategoryId": 4
+  },
+  {
+    "ProductId": 7,
+    "StockId": 5,
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 8,
+    "StockId": 7,
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 9,
+    "StockId": 6,
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 10,
+    "StockId": 6,
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 11,
+    "StockId": 6,
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 12,
+    "StockId": 6,
+    "CategoryId": 6
+  },
+  {
+    "ProductId": 13,
+    "StockId": 6,
+    "CategoryId": 6
+  },
+  {
+    "ProductId": 14,
+    "StockId": 6,
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 15,
+    "StockId": 6,
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 16,
+    "StockId": 6,
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 17,
+    "StockId": 6,
+    "CategoryId": 5
+  },
+  {
+    "ProductId": 18,
+    "StockId": 6,
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 19,
+    "StockId": 6,
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 20,
+    "StockId": 2,
+    "CategoryId": 5
+  },
+  {
+    "ProductId": 21,
+    "StockId": 6,
+    "CategoryId": 6
   }
 ]

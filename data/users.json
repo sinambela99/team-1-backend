@@ -10,7 +10,7 @@
   {
     "name": "Anthony",
     "email": "Anthony23@gmail.com",
-    "password": "54321",
+    "password": "12345",
     "role": "Seller",
     "address": "Jl.Tungau No.23 Jakarta Utara"
   },
@@ -18,7 +18,7 @@
   {
     "name": "Jimmy",
     "email": "Jimmy@gmail.com",
-    "password": "654321",
+    "password": "12345",
     "role": "Buyer",
     "address": "Jl.Tungau No.15 Jakarta Utara"
   },
@@ -26,31 +26,7 @@
   {
     "name": "Axcell",
     "email": "Axcell@gmail.com",
-    "password": "09876",
-    "role": "Seller",
-    "address": "Jl.Tungau No.15 Jakarta Utara"
-  },
-
-  {
-    "name": "Mukhariza",
-    "email": "Mukhariza@gmail.com",
-    "password": "654321",
-    "role": "Buyer",
-    "address": "Jl.Tungau No.15 Jakarta Utara"
-  },
-
-  {
-    "name": "Gon",
-    "email": "Gon@gmail.com",
-    "password": "654321",
-    "role": "Buyer",
-    "address": "Jl.Tungau No.15 Jakarta Utara"
-  },
-
-  {
-    "name": "Budi",
-    "email": "Budi@gmail.com",
-    "password": "654321",
+    "password": "12345",
     "role": "Buyer",
     "address": "Jl.Tungau No.15 Jakarta Utara"
   }

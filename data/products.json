@@ -1,34 +1,170 @@
 [
   {
-    "name": "Transformers",
-    "description": "mainan untuk anak anak",
-    "photo": "https://i.pinimg.com/236x/ce/80/4e/ce804eaf533cbf5725676a3f168cebec.jpg",
-    "price": 10000,
-    "discount": 0.2,
-    "UserId": 3
-  },
-  {
-    "name": "Sirup Marjan",
-    "description": "minuman rasa",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0w2kwLc_5mYnlPsSrLrKGgoRFg9P28Uf2QxCz3vISPsawhlz_hHmjNcQjEJEYYnjF9vc&usqp=CAU",
-    "price": 20000,
-    "discount": 0.2,
-    "UserId": 5
-  },
-  {
-    "name": "Bimoli",
-    "description": "minyak goreng",
-    "photo": "https://www.wartamaluku.com/wp-content/uploads/2018/02/received_1994858934109843.jpeg",
-    "price": 30000,
-    "discount": 0.5,
-    "UserId": 7
-  },
-  {
-    "name": "Kapur Barus",
-    "description": "Penghilang Bau",
-    "photo": "https://assets-a1.kompasiana.com/statics/crawl/552d3b880423bd91738b4567.jpeg",
-    "price": 30000,
+    "name": "Xbox series X",
+    "description": "The Xbox Series X delivers sensationally smooth frame rates of up to 120FPS with the visual pop of HDR.",
+    "photo": "https://www.tradeinn.com/f/13777/137776929_2/microsoft-xbox-xbox-series-x-1tb-console.jpg",
+    "price": 8000000,
     "discount": 0.1,
-    "UserId": 6
+    "UserId": 2
+  },
+  {
+    "name": "Xbox series S",
+    "description": "Introducing Xbox Series S, the smallest, sleekest Xbox ever.",
+    "photo": "https://m.media-amazon.com/images/I/61Xtx4mXvvL.jpg",
+    "price": 5500000,
+    "discount": 0.2,
+    "UserId": 2
+  },
+  {
+    "name": "Playstation 5",
+    "description": "Powerfull video game console and capable of 4K resolution display at up to 120 frames per second",
+    "photo": "https://res.cloudinary.com/grover/image/upload/f_webp,q_auto/b_white,c_pad,dpr_2.0,h_500,w_520/f_auto,q_auto/v1603964449/fzfncb8bact3nuicyrxi.png",
+    "price": 9000000,
+    "discount": 0.5,
+    "UserId": 1
+  },
+  {
+    "name": "Beats Studio Buds +",
+    "description": "Beats Studio Buds are true wireless earbuds with active noise cancelling, Transparency mode, 8 hours of battery life, and rich, immersive sound.",
+    "photo": "https://www.gizmochina.com/wp-content/uploads/2023/05/Beats-Studio-Buds.jpg",
+    "price": 3000000,
+    "discount": 0.2,
+    "UserId": 2
+  },
+  {
+    "name": "Iphone 14 pro",
+    "description": "iPhone 14 Pro dan 14 Pro Max mengusung layar OLED Super Retina XDR dengan tingkat kecerahan hingga 2.000 nits. Ukurannya masing-masing 6,1 inch dan 6,7 inch, semuanya terlindungi ceramic shield.",
+    "photo": "https://imagineonline.store/cdn/shop/products/MQ023HN_A.jpg?v=1662718673",
+    "price": 21000000,
+    "discount": 0.1,
+    "UserId": 2
+  },
+  {
+    "name": "Apple Watch Ultra",
+    "description": "Apple Watch is a wearable smartwatch that allows users to accomplish a variety of tasks, including making phone calls, sending text messages and reading email.",
+    "photo": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQEE3_VW_34FR+watch-49-titanium-ultra_VW_34FR_WF_CO+watch-face-49-ocean-ultra_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1683224241054",
+    "price": 8000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "Samsung Galaxy Z Fold 4",
+    "description": "Phone for multitasking, watching videos, replying to work emails and messaging friends all at the same time!.",
+    "photo": "https://961souq.com/cdn/shop/products/galaxy-z-fold-4-black.jpg?v=1675353256",
+    "price": 12000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "Macbook Air M2",
+    "description": "MacBook Air with M1 is an incredibly portable laptop — it's nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all day battery life, this Air moves at the speed of lightness..",
+    "photo": "https://www.jbhifi.com.au/cdn/shop/products/594248-Product-2-I-637901928213348536_1024x1024.jpg",
+    "price": 20000000,
+    "discount": 0,
+    "UserId": 1
+  },
+  {
+    "name": "Apple Watch Series 8",
+    "description": "Apple Watch is a wearable smartwatch that allows users to accomplish a variety of tasks, including making phone calls, sending text messages and reading email.",
+    "photo": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ML813_VW_34FR+watch-45-stainless-graphite-cell-8s_VW_34FR_WF_CO_GEO_HK?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1683226539556",
+    "price": 6000000,
+    "discount": 0.3,
+    "UserId": 2
+  },
+  {
+    "name": "Airpods Pro",
+    "description": "AirPods Pro take the listening experience to a new level of individuality.",
+    "photo": "https://static.bmdstatic.com/pk/product/large/5e93df8cc8ca9.jpg",
+    "price": 5000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "Macbook Pro 14 M1",
+    "description": "Apple MacBook Pro is a macOS laptop with a 14inch. It is powered by a Apple M1 Pro is a System on a Chip (SoC) from Apple processor.",
+    "photo": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-mbp14-silver-m1-2021?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1638576254000",
+    "price": 35000000,
+    "discount": 0,
+    "UserId": 2
+  },
+  {
+    "name": "Samsung 85' 8K Neo QLED",
+    "description": "Samsung OLED uses a self-luminous principle to reduce the emission of harmful blue light wavelengths",
+    "photo": "https://d2xamzlzrdbdbn.cloudfront.net/products/0fc5f9e1-8120-4461-8bd9-e30f1277f9c2.jpg",
+    "price": 85000000,
+    "discount": 0,
+    "UserId": 1
+  },
+  {
+    "name": "Sony Bravia A95K OLED",
+    "description": "The A95K provides a lovely, subtle orange warmth that gradually fades towards the centre of a sunset but never truly disappears.",
+    "photo": "https://pixeltv.it/wp-content/uploads/Sony-A95K.webp",
+    "price": 45000000,
+    "discount": 0.4,
+    "UserId": 1
+  },
+  {
+    "name": "AirPods Max",
+    "description": "The Apple AirPods Max are high-end headphones with a premium design. Their noise cancelling feature is great.",
+    "photo": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-hero-select-202011?wid=940&hei=1112&fmt=jpeg&qlt=90&.v=1604709293000",
+    "price": 8000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "MSI Titan GT77",
+    "description": "The Titan GT77 is equipped with 4 sets of expansion memory slots for 4x DDR5 memory, just like a desktop.",
+    "photo": "https://media.ldlc.com/r1600/ld/products/00/05/96/14/LD0005961407_0005961430_0005961504.jpg",
+    "price": 80000000,
+    "discount": 0.1,
+    "UserId": 2
+  },
+  {
+    "name": "Iphone 13 Pro",
+    "description": "he iPhone 13 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle.",
+    "photo": "https://www.openboxmobile.com/temp/JPG_55f065e6a200fc3641768809a0edf9ec.png",
+    "price": 15000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "Playstation 4 Pro",
+    "description": "The PS4 Pro offers 4K gaming and streaming, gorgeous HDR effects and a healthy game library with VR support.",
+    "photo": "https://www.smartgeneration.it/wp-content/uploads/2022/08/PS4-PRO-FRONT.jpg",
+    "price": 5000000,
+    "discount": 0.1,
+    "UserId": 1
+  },
+  {
+    "name": "Samsung Galaxy Z Flip 4",
+    "description": "Galaxy Z Flip features an Infinity Flex Display with Samsung's proprietary bendable Ultra Thin Glass .",
+    "photo": "https://intercomp.com.mt/wp-content/uploads/2023/06/58026-1.jpg",
+    "price": 12000000,
+    "discount": 0.2,
+    "UserId": 1
+  },
+  {
+    "name": "Garmin Forerunner 965",
+    "description": "The Forerunner 965 is Garmin's new top of the range running and triathlon watch that comes with a crisp and bright OLED screen.",
+    "photo": "https://www.tradeinn.com/f/13973/139738378/garmin-forerunner-965-%D0%A7%D0%B0%D1%81%D1%8B.jpg",
+    "price": 10000000,
+    "discount": 0,
+    "UserId": 1
+  },
+  {
+    "name": "Steam Deck",
+    "description": "Steam Deck is a handheld gaming PC created by Valve so users can play Steam-based games while on the move.",
+    "photo": "https://skullnco.com/cdn/shop/products/GripCaseSD-SteamDeck-black-0628_1000.jpg?v=1687940157",
+    "price": 7550000,
+    "discount": 0.1,
+    "UserId": 2
+  },
+  {
+    "name": "Samsung Q7CN Curved QLED",
+    "description": "he Samsung Q7CN is a 4k QLED TV with very good picture quality. It can get very bright and has excellent reflection handling.",
+    "photo": "https://johnlewis.scene7.com/is/image/JohnLewis/236790536alt1",
+    "price": 68000000,
+    "discount": 0.3,
+    "UserId": 1
   }
 ]

@@ -12,13 +12,13 @@
   },
 
   {
-    "PaymentTransactionId": 2,
+    "PaymentTransactionId": 3,
     "shipment_number": "1232154123521346",
     "receipt": "https://aryadutawebstore.co.id/assets/uploads/bukti-transfer/bukti_transfer_200130104707.JPG"
   },
 
   {
-    "PaymentTransactionId": 2,
+    "PaymentTransactionId": 4,
     "shipment_number": "1232154123521346",
     "receipt": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSyq-eRNXvEuUczcdpa4SLdahmNXr-Vd5YiQ&usqp=CAU"
   }
