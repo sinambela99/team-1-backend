@@ -8,6 +8,8 @@ class Controller {
       const { page, size, search } = req.query;
 
       const options = {
+        // limit: size,
+        // offset: page * size,
         order: [["id", "ASC"]],
         include: [{ model: User, attributes: ["name"] }],
       };
@@ -20,15 +22,7 @@ class Controller {
         };
       }
 
-      if (options <= 0) {
-        throw { name: "NotFound" };
-      }
-
       const result = await Product.findAll(options);
-
-      if (result <= 0) {
-        throw { name: "NotFound" };
-      }
 
       res.status(200).json({ data: result });
     } catch (err) {

@@ -1,4 +1,5 @@
-const { Category, Product_detail, Stock } = require("../models");
+const { Category, Product_detail, Stock, Product } = require("../models");
+const { Op } = require("sequelize");
 
 class Controller {
   // Get All Category
@@ -18,18 +19,38 @@ class Controller {
   // Get Category By Id
   static async getCategoryById(req, res, next) {
     try {
-      const result = await Category.findByPk(req.params.id);
+      const result = await Category.findByPk(req.params.id); // category id
+      const product = await Product_detail.findAll({
+        where: { CategoryId: result.id },
+        include: [{ model: Product }],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      });
 
-      if (!result) {
+      if (result === null || product === null) {
         throw { name: "NotFound" };
       }
 
-      res.status(200).json({ data: result });
+      res.status(200).json({ data: product });
     } catch (err) {
       next(err);
     }
   }
 
+  // Get Category by name
+  static async getCategoryByName(req, res, next) {
+    try {
+      const search = req.params.name;
+      const data = await Product_detail.findAll({
+        include: [
+          { model: Product, attributes: ["name", "description", "price", "discount"] },
+          { model: Category, where: { name: { [Op.iLike]: `%${search}%` } }, attributes: ["name"] },
+        ],
+      });
+      res.status(200).json({ data: data });
+    } catch (err) {
+      next(err);
+    }
+  }
   // Create Category
   static async createNewCategory(req, res, next) {
     try {

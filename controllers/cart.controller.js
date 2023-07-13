@@ -1,9 +1,31 @@
-const { Cart } = require("../models");
+const { Cart, User, Product } = require("../models");
 
 class Controller {
   static async getAllCart(req, res, next) {
     try {
-      const result = await Cart.findAll();
+      const result = await Cart.findAll({
+        order: [["id", "ASC"]],
+        include: [{ model: User }, { model: Product }],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      });
+      res.status(200).json({ data: result });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async getCartById(req, res, next) {
+    try {
+      const result = await Cart.findByPk(req.params.id, {
+        order: [["id", "ASC"]],
+        include: [{ model: User }, { model: Product }],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      });
+
+      if (!result) {
+        throw { name: "NotFound" };
+      }
+
       res.status(200).json({ data: result });
     } catch (err) {
       next(err);
@@ -15,20 +37,6 @@ class Controller {
       const { quantity, UserId, ProductId } = req.fields;
       const cart = await Cart.create({ quantity, UserId, ProductId });
       res.status(200).json({ message: `New Cart with id ${cart.id} created.` });
-    } catch (err) {
-      next(err);
-    }
-  }
-
-  static async getCartById(req, res, next) {
-    try {
-      const result = await Cart.findByPk(req.params.id);
-
-      if (!result) {
-        throw { name: "NotFound" };
-      }
-
-      res.status(200).json({ data: result });
     } catch (err) {
       next(err);
     }

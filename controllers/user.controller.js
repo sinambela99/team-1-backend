@@ -6,14 +6,14 @@ class Controller {
   // Register User
   static async register(req, res, next) {
     try {
-      const { name, address, email, password, role } = req.fields;
+      const { name, email, role, address, password } = req.body;
 
       const user = await User.create({
         name,
-        address,
         email,
-        password,
         role,
+        address,
+        password,
       });
 
       res.status(200).json({ message: `New user with id ${user.id} created.` });
@@ -25,7 +25,7 @@ class Controller {
   // Login User
   static async login(req, res, next) {
     try {
-      const { email, password } = req.fields;
+      const { email, password } = req.body; //fields
       const user = await User.findOne({ where: { email } });
       if (!user) {
         throw { name: "Unauthorized" };
