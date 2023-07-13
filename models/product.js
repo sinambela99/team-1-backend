@@ -16,12 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       });
       Product.hasMany(models.Payment_transaction);
       Product.hasMany(models.Product_detail);
+      Product.hasMany(models.Cart);
     }
   }
   Product.init(
     {
       name: DataTypes.STRING,
-      description: DataTypes.STRING,
+      description: DataTypes.TEXT,
       photo: DataTypes.STRING,
       price: DataTypes.INTEGER,
       discount: DataTypes.DECIMAL,
