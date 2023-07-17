@@ -18,7 +18,7 @@ class Controller {
   // Get Product Details By Id
   static async getProduct_detailById(req, res, next) {
     try {
-      const result = await Product_detail.findByPk(req.params.id, { include: [{ model: Product }] });
+      const result = await Product_detail.findByPk(req.params.id, { include: [{ model: Product }, { model: Category }, { model: Stock }] });
 
       if (!result) {
         throw { name: "NotFound" };

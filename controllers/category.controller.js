@@ -22,7 +22,7 @@ class Controller {
       const result = await Category.findByPk(req.params.id); // category id
       const product = await Product_detail.findAll({
         where: { CategoryId: result.id },
-        include: [{ model: Product }],
+        include: [{ model: Category }, { model: Product }, { model: Stock }],
         attributes: { exclude: ["createdAt", "updatedAt"] },
       });
 
