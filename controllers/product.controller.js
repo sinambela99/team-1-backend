@@ -32,17 +32,18 @@ class Controller {
 
   static async newProduct(req, res, next) {
     try {
-      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.photo.path);
-      const { id } = req.user;
-      const { name, description, price, discount } = req.fields;
+      console.log(req)
 
+      // const { id } = req.user;
+      const { name, description, price, discount, photo } = req.body;
+      console.log(req.body)
       const product = await Product.create({
         name,
         description,
-        photo: uploadedFile?.secure_url,
+        photo: photo,
         price: +price,
         discount,
-        UserId: +id,
+        // UserId: UserId,
       });
 
       res.status(200).json({ message: `New Product with id ${product.id} created.` });
@@ -67,15 +68,13 @@ class Controller {
 
   static async updateProduct(req, res, next) {
     try {
-      const uploadedFile = await cloudinaryConfig.uploader.upload(req.files.photo.path);
-
-      const { name, description, price, discount } = req.fields;
+      const { name, description, price, discount, photo } = req.body;
 
       const product = await Product.update(
         {
           name,
           description,
-          photo: uploadedFile?.secure_url,
+          photo: photo,
           price,
           discount,
         },

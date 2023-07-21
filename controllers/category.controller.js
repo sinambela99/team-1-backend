@@ -54,7 +54,7 @@ class Controller {
   // Create Category
   static async createNewCategory(req, res, next) {
     try {
-      const { name, description } = req.fields;
+      const { name, description } = req.body;
 
       const category = await Category.create({ name, description });
 
