@@ -38,6 +38,7 @@ class Controller {
       const token = generateToken(payload);
       res.status(200).json({
         statusCode: 200,
+        id: user.id,
         access_token: token,
         email: user.email,
         role: user.role,
