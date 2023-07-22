@@ -1,6 +1,6 @@
-const { Product, User } = require("../models");
+const { Product, User, Product_detail, Stock, Category } = require("../models");
 const cloudinaryConfig = require("../config/cloudinary");
-const { Op } = require("sequelize");
+const { Op, Sequelize } = require("sequelize");
 
 class Controller {
   static async getAllProduct(req, res, next) {
@@ -11,7 +11,6 @@ class Controller {
         // limit: size,
         // offset: page * size,
         order: [["id", "ASC"]],
-        include: [{ model: User, attributes: ["name"] }],
       };
 
       if (search) {
@@ -30,20 +29,56 @@ class Controller {
     }
   }
 
+  static async highPrice(req, res, next) {
+    try {
+      const prod = await Product.findAll({
+        order: [["price", "DESC"]],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      });
+      res.status(200).json({ data: prod });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async lowerPrice(req, res, next) {
+    try {
+      const prod = await Product.findAll({
+        order: [["price", "ASC"]],
+        attributes: { exclude: ["createdAt", "updatedAt"] },
+      });
+      res.status(200).json({ prod });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async newProduct(req, res, next) {
     try {
-      console.log(req)
+      console.log(req);
 
       // const { id } = req.user;
-      const { name, description, price, discount, photo } = req.body;
-      console.log(req.body)
+      const { name, description, price, discount, photo, stock, CategoryId } = req.body;
+
+      console.log(req.body.category);
+
       const product = await Product.create({
         name,
         description,
-        photo: photo,
+        photo,
         price: +price,
         discount,
-        // UserId: UserId,
+        // UserId: +id,
+      });
+
+      const prodStock = await Stock.create({
+        stock,
+      });
+
+      const detail = await Product_detail.create({
+        ProductId: product.id,
+        StockId: prodStock.id,
+        CategoryId: CategoryId,
       });
 
       res.status(200).json({ message: `New Product with id ${product.id} created.` });
@@ -74,7 +109,7 @@ class Controller {
         {
           name,
           description,
-          photo: photo,
+          photo,
           price,
           discount,
         },

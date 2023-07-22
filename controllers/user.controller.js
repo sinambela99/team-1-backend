@@ -50,7 +50,9 @@ class Controller {
   // Get All User
   static async getAllUser(req, res, next) {
     try {
-      const user = await User.findAll();
+      const user = await User.findAll({
+        attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+      });
       res.status(200).json({ data: user });
     } catch (err) {
       next(err);
@@ -92,7 +94,7 @@ class Controller {
         throw { name: "NotFound" };
       }
 
-      const { name, address, email, password, role } = req.fields;
+      const { name, address, email, password, role } = req.body;
 
       User.update(
         {

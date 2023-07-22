@@ -29,13 +29,11 @@ class Controller {
   // Create Stock
   static async createNewProduct(req, res, next) {
     try {
-      const { stock } = req.fields;
+      const { stock } = req.body;
 
       const data = await Stock.create({ stock });
 
-      res
-        .status(200)
-        .json({ message: `New Stock with id ${data.id} created.` });
+      res.status(200).json({ message: `New Stock with id ${data.id} created.` });
     } catch (err) {
       next(err);
     }
@@ -50,13 +48,11 @@ class Controller {
         throw { name: "NotFound" };
       }
 
-      const { stock } = req.fields;
+      const { stock } = req.body;
 
       Stock.update({ stock }, { where: { id: req.params.id } });
 
-      res
-        .status(200)
-        .json({ message: `Stock with id ${req.params.id} updated` });
+      res.status(200).json({ message: `Stock with id ${req.params.id} updated` });
     } catch (err) {
       next(err);
     }
