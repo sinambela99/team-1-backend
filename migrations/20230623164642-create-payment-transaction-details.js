@@ -17,6 +17,7 @@ module.exports = {
       },
       PaymentTransactionId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: "Payment_transactions",
           key: "id",

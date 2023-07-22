@@ -11,6 +11,7 @@ module.exports = {
       },
       ProductId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: "Products",
           key: "id",
@@ -18,6 +19,7 @@ module.exports = {
       },
       StockId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: "Stocks",
           key: "id",
@@ -25,6 +27,7 @@ module.exports = {
       },
       CategoryId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references: {
           model: "Categories",
           key: "id",

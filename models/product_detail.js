@@ -11,9 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product_detail.belongsTo(models.Product, {
         foreignKey: "ProductId",
+        onDelete: "cascade",
+        hooks: true,
       });
       Product_detail.belongsTo(models.Stock, {
         foreignKey: "StockId",
+        onDelete: "cascade",
+        hooks: true,
       });
       Product_detail.belongsTo(models.Category, {
         foreignKey: "CategoryId",
