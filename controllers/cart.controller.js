@@ -34,8 +34,14 @@ class Controller {
 
   static async newCart(req, res, next) {
     try {
-      const { quantity, UserId, ProductId } = req.fields;
-      const cart = await Cart.create({ quantity, UserId, ProductId });
+      const { id } = req.user;
+      const { quantity, ProductId } = req.body;
+      // const product = await Product.findByPk();
+      const cart = await Cart.create({
+        quantity,
+        UserId: +id,
+        ProductId,
+      });
       res.status(200).json({ message: `New Cart with id ${cart.id} created.` });
     } catch (err) {
       next(err);

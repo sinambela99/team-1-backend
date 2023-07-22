@@ -3,11 +3,12 @@ const router = express.Router();
 const Controller = require("../controllers/cart.controller");
 const auth = require("../middlewares/authentication");
 const authCart = require("../middlewares/authCart");
+const authBuyer = require("../middlewares/authBuyer");
 
 router.get("/", Controller.getAllCart);
 router.use(auth);
+router.post("/", authBuyer, Controller.newCart);
 router.get("/:id", authCart, Controller.getCartById);
-router.post("/", authCart, Controller.newCart);
 router.put("/:id", authCart, Controller.updateCart);
 router.delete("/:id", authCart, Controller.deleteCart);
 
