@@ -57,10 +57,10 @@ class Controller {
     try {
       console.log(req);
 
-      // const { id } = req.user;
-      const { name, description, price, discount, photo, stock, CategoryId } = req.body;
-
-      console.log(req.body.category);
+      const id = req.user.id;
+      const { name, description, price, discount, photo, UserId, stock, CategoryId } = req.body;
+      // console.log(id);
+      // console.log(req.user);
 
       const product = await Product.create({
         name,
@@ -68,7 +68,7 @@ class Controller {
         photo,
         price: +price,
         discount,
-        // UserId: +id,
+        UserId: +id,
       });
 
       const prodStock = await Stock.create({

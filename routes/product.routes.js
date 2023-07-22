@@ -8,10 +8,10 @@ router.get("/", Controller.getAllProduct);
 router.get("/highest", Controller.highPrice);
 router.get("/lowest", Controller.lowerPrice);
 
-// router.use(auth);
-router.get("/:id", Controller.getProductById);
+router.use(auth);
 router.post("/", Controller.newProduct);
-router.put("/:id", Controller.updateProduct);
-router.delete("/:id", Controller.deleteProduct);
+router.get("/:id", Controller.getProductById);
+router.put("/:id", authProduct, Controller.updateProduct);
+router.delete("/:id", authProduct, Controller.deleteProduct);
 
 module.exports = router;
