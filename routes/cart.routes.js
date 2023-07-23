@@ -8,7 +8,7 @@ const authBuyer = require("../middlewares/authBuyer");
 router.get("/", Controller.getAllCart);
 router.use(auth);
 router.post("/", authBuyer, Controller.newCart);
-router.get("/:id", authCart, Controller.getCartById);
+router.get("/:id", Controller.getCartById);
 router.put("/:id", authCart, Controller.updateCart);
 router.delete("/:id", authCart, Controller.deleteCart);
 
